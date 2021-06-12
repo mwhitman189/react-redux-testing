@@ -29,5 +29,5 @@ it("displays a comment list", () => {
   act(() => {
     render(<App />, container);
   });
-  expect(container.innerHTML).toContain("<div>");
+  expect(container.innerHTML).toContain("I'm a comment list");
 });
