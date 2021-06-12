@@ -24,6 +24,6 @@ describe('the comment box', () => {
     });
     component.update();
 
-    expect(component.find('textarea').prop('value')).toEqual('burritos');
+    expect(component.find('textarea').prop('value')).toEqual('burrits');
   });
 })
