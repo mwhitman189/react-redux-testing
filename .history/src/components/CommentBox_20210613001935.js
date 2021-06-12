@@ -13,7 +13,7 @@ class CommentBox extends React.Component {
     console.log(this.state);
     // TODO - Call an action creator
     // and save the comment
-    this.setState({comment: ""});
+    this.setState()
   }
 
   render() {

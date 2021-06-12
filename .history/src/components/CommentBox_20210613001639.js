@@ -10,10 +10,7 @@ class CommentBox extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state);
-    // TODO - Call an action creator
-    // and save the comment
-    this.setState({comment: ""});
+    console.log(state);
   }
 
   render() {
