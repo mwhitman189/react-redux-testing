@@ -18,7 +18,7 @@ it('contains a textarea and a button', () => {
 });
 
 test('if the textarea accepts user input', () => {
-  component.find('textarea').simulate('change', {
-    target: {value: "burritos"}
-  });
-});
+  const eventTargetValue = "This is a comment";
+
+  expect(component.find(textarea))
+})
