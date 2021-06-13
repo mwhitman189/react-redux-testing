@@ -31,6 +31,6 @@ it("creates one <li> per comment", () => {
 
 it("displays the correct text from each comment", () => {
   component.find("li").forEach((item, idx) => {
-    expect(item.text()).toEqual(testComments[idx]);
+    expect(item.render().text()).toEqual(testComments[idx]);
   });
 });

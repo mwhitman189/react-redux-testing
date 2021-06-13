@@ -1,9 +1,10 @@
 import React from "react";
-import { connect } from "react-redux";
+import { connect, useSelector } from "react-redux";
+import { COMMENT_ADDED } from "actions/types";
 import * as actions from "actions";
 
 class CommentBox extends React.Component {
-  state = { comment: "" };
+  state = useSelector((state) => state);
 
   handleChange = (e) => {
     this.setState({ comment: e.target.value });
@@ -16,13 +17,26 @@ class CommentBox extends React.Component {
     this.setState({ comment: "" });
   };
 
+  handleFetchComments = async () => {
+    fetch("https://jsonplaceholder.typicode.com/posts")
+      .then((response) => response.json())
+      .then((json) =>
+        json
+          .slice(0, 20)
+          .forEach((comment) =>
+            actions.saveComment(COMMENT_ADDED, { payload: comment.name })
+          )
+      );
+  };
+
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <h4>Add a comment</h4>
+        <h4>Add a Comment</h4>
         <textarea value={this.state.comment} onChange={this.handleChange} />
         <div>
-          <button>Submit comment</button>
+          <button type="submit">Submit Comment</button>
+          <button onClick={this.handleFetchComments}>Fetch Comments</button>
         </div>
       </form>
     );
