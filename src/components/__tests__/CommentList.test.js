@@ -1,5 +1,5 @@
 import React from "react";
-import { shallow } from "enzyme";
+import { mount } from "enzyme";
 
 import Root from "Root";
 import CommentList from "components/CommentList";
@@ -13,13 +13,17 @@ const testComments = [
 
 let component;
 beforeEach(() => {
-  component = shallow(
-    <Root>
-      <CommentList comments={testComments} />
+  const initialState = {
+    comments: testComments,
+  };
+
+  component = mount(
+    <Root initialState={initialState}>
+      <CommentList />
     </Root>
   );
 });
 
-it("renders four <li> elements", () => {
-  expect(component.find("li").length).toEqual(4);
+it("creates one <li> per comment", () => {
+  expect(component.find("li").length).toEqual(testComments.length);
 });
