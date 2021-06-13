@@ -12,6 +12,7 @@ const testComments = [
 ];
 
 let component;
+
 beforeEach(() => {
   const initialState = {
     comments: testComments,
@@ -26,4 +27,10 @@ beforeEach(() => {
 
 it("creates one <li> per comment", () => {
   expect(component.find("li").length).toEqual(testComments.length);
+});
+
+it("displays the correct text from each comment", () => {
+  component.find("li").forEach((item, idx) => {
+    expect(item.text()).toEqual(testComments[idx]);
+  });
 });
