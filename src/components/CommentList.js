@@ -1,10 +1,8 @@
 import React from 'react'
 
 
-const CommentList = () => {
-  return (
-    <div>I'm a comment list</div>
-  );
+const CommentList = ({comments}) => {
+  return comments.map(comment => <li>{comment}</li>);
 };
 
 export default CommentList;
