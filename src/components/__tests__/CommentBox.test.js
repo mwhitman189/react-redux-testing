@@ -18,7 +18,7 @@ afterEach(() => {
 });
 
 it("contains a textarea and a button", () => {
-  expect(component.find("button").length).toEqual(1);
+  expect(component.find("button").length).toEqual(2);
   expect(component.find("textarea").length).toEqual(1);
 });
 
@@ -41,5 +41,19 @@ describe("the comment box textarea", () => {
     component.update();
 
     expect(component.find("textarea").prop("value")).toEqual("");
+  });
+
+  it("prevents empty comment submission", () => {
+    expect(component.find("textarea").prop("value")).toEqual("burritos");
+
+    component.find("textarea").simulate("change", {
+      target: { value: "" },
+    });
+    component.find("textarea").simulate("submit");
+    component.update();
+
+    expect(component.find("p").render().text()).toEqual(
+      "Please input some text in the box before you submit your comment;)"
+    );
   });
 });
