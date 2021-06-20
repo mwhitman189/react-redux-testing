@@ -1,9 +1,9 @@
 import commentsReducer from "reducers/commentsReducer";
-import { COMMENT_ADDED } from "actions/types";
+import { ADD_COMMENT } from "actions/types";
 
 it("handles actions of type COMMENT_SAVED", () => {
   const action = {
-    type: COMMENT_ADDED,
+    type: ADD_COMMENT,
     payload: "Test comment",
   };
 

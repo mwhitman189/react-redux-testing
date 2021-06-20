@@ -1,3 +1,3 @@
-export const COMMENT_ADDED = "comments/commentAdded";
+export const ADD_COMMENT = "comments/commentAdded";
 
-export const COMMENTS_FETCHED = "comments/commentsFetched";
+export const FETCH_COMMENTS = "comments/commentsFetched";

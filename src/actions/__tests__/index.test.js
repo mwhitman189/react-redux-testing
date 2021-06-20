@@ -1,5 +1,5 @@
 import { saveComment } from "actions";
-import { COMMENT_ADDED } from "actions/types";
+import { ADD_COMMENT } from "actions/types";
 
 describe("Save comment", () => {
   let newAction;
@@ -9,7 +9,7 @@ describe("Save comment", () => {
   });
 
   it("has the correct type", () => {
-    expect(newAction.type).toEqual(COMMENT_ADDED);
+    expect(newAction.type).toEqual(ADD_COMMENT);
   });
 
   it("has the correct payload", () => {
